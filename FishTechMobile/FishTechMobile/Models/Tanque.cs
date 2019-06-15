@@ -12,6 +12,7 @@ namespace FishTechMobile.Models
         public DateTime DataEntrada { get; set; }
         public Produtor Produtor { get; set; }
         public Double Biomassa { get; set; }
+        public String DescricaoEspecie { get => EspeciePeixe.Descricao; }
 
     }
 }

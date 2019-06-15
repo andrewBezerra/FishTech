@@ -59,15 +59,15 @@ namespace FishTechMobile.ViewModels
         public override async void OnNavigatedTo(INavigationParameters parameters)
         {
             var navigationMode = parameters.GetNavigationMode();
-            if (navigationMode == NavigationMode.Back)
-            {
-                Console.Write("Voltei!");
-                return;
-            }
-            else
-            {
-                Console.Write("Navegando para");
-            }
+            //if (navigationMode == NavigationMode.Back)
+            //{
+            //    Console.Write("Voltei!");
+            //    return;
+            //}
+            //else
+            //{
+            //    Console.Write("Navegando para");
+            //}
 
         }
 

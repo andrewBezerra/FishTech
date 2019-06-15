@@ -24,22 +24,23 @@
             <DataTemplate>
                 <ViewCell>
                     <Frame
-                        Margin="3"
+                        Margin="2"
                         Padding="0"
+                        CornerRadius="1"
                         HasShadow="True">
                         <Grid
                             Margin="0"
                             Padding="0"
                             RowSpacing="0">
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="50" />
                                 <RowDefinition Height="80" />
-                                <RowDefinition Height="100" />
                             </Grid.RowDefinitions>
-                            <StackLayout Grid.Row="0" BackgroundColor="Fuchsia">
+                            <StackLayout Grid.Row="0">
 
                                 <Image
                                     Aspect="AspectFill"
-                                    HeightRequest="80"
+                                    HeightRequest="50"
                                     HorizontalOptions="FillAndExpand"
                                     VerticalOptions="FillAndExpand">
                                     <Image.Source>
@@ -50,21 +51,88 @@
                                     </Image.Source>
                                 </Image>
                             </StackLayout>
-                            <Grid
-                                Grid.Row="1"
-                                Margin="3"
-                                BackgroundColor="Green">
+                            <Grid Grid.Row="1" Margin="3">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="3*" />
-                                    <ColumnDefinition Width="7*" />
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="6*" />
                                 </Grid.ColumnDefinitions>
                                 <RelativeLayout
                                     Grid.Column="0"
-                                    BackgroundColor="CadetBlue"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center">
-                                    <Label Text="{Binding Descricao}" />
+                                    <StackLayout
+                                        FlexLayout.Grow="0"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Spacing="0">
+                                        <Label Text="{Binding Descricao}" TextColor="Black" />
+                                        <Label FontSize="Micro" Text="{Binding DescricaoEspecie}" />
+                                    </StackLayout>
                                 </RelativeLayout>
+                                <FlexLayout
+                                    Grid.Column="1"
+                                    AlignItems="Center"
+                                    Direction="Row">
+                                    <StackLayout
+                                        FlexLayout.Grow="1"
+                                        HorizontalOptions="Center"
+                                        Spacing="0">
+                                        <Label
+                                            FontSize="7"
+                                            HorizontalOptions="Center"
+                                            Text="pH" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            HorizontalOptions="Center"
+                                            Text="7"
+                                            TextColor="CadetBlue" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        FlexLayout.Grow="1"
+                                        HorizontalOptions="Center"
+                                        Spacing="0">
+                                        <Label
+                                            FontSize="7"
+                                            HorizontalOptions="Center"
+                                            Text="OD" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="9"
+                                            HorizontalOptions="Center"
+                                            Text="7,4mg/l "
+                                            TextColor="CadetBlue" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        FlexLayout.Grow="1"
+                                        HorizontalOptions="Center"
+                                        Spacing="0">
+                                        <Label
+                                            FontSize="7"
+                                            HorizontalOptions="Center"
+                                            Text="°C" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            HorizontalOptions="Center"
+                                            Text="37,6"
+                                            TextColor="CadetBlue" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        FlexLayout.Grow="1"
+                                        HorizontalOptions="Center"
+                                        Spacing="0">
+                                        <Label
+                                            FontSize="7"
+                                            HorizontalOptions="Center"
+                                            Text="Turbidez" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            HorizontalOptions="Center"
+                                            Text="7"
+                                            TextColor="CadetBlue" />
+                                    </StackLayout>
+                                </FlexLayout>
 
                             </Grid>
                             <!--<Image
