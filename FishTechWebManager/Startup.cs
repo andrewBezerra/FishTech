@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FishTechWebManager._infra;
+using FishTechWebManager._Repository;
+using FishTechWebManager._Repository.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,6 +29,15 @@ namespace FishTechWebManager
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSingleton<IDB, MSSQL>();
+            services.AddTransient<IAtividadeRepository, AtividadeRepository>();
+            services.AddTransient<IDispositivoRepository, DispositivoRepository>();
+            services.AddTransient<IEspecieRepository, EspecieRepository>();
+            services.AddTransient<IIndicadorRepository, IndicadorRepository>();
+            services.AddTransient<IInformacoesRepository, InformacoesRepository>();
+            services.AddTransient<IMedicaoRepository, MedicaoRepository>();
+            services.AddTransient<IProdutorRepository, ProdutorRepository>();
+            services.AddTransient<ITanqueRepository, TanqueRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
