@@ -1,4 +1,4 @@
-![FISHTECH](Logo.png)
+![FISHTECH](blob/dev/Logo.png)
 # FishTech - Uma aplicação para gerenciamento e monitoramento de produção em piscicultura.
 
 
