@@ -1,3 +1,4 @@
+![FISHTECH](Logo.png)
 # FishTech - Uma aplicação para gerenciamento e monitoramento de produção em piscicultura.
 
 
