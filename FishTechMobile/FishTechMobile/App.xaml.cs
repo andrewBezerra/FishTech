@@ -62,7 +62,10 @@ namespace FishTechMobile
         {
             InitializeComponent();
 #if DEBUG
-            HotReloader.Current.Run(this);
+            HotReloader.Current.Run(this, new HotReloader.Configuration
+            {
+                ExtensionAutoDiscoveryPort = 15000 // VALUE FROM EXTENSION's ALERT
+            });
 #endif
             await NavigationService.NavigateAsync($"xf:///{nameof(MenuPage)}/NavigationPage/{nameof(MainPage)}");
         }

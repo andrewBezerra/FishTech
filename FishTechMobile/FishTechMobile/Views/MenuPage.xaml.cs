@@ -15,6 +15,7 @@ namespace FishTechMobile.Views
         public MenuPage()
         {
             InitializeComponent();
+            
             //MasterPage.ListView.ItemSelected += ListView_ItemSelected;
         }
 

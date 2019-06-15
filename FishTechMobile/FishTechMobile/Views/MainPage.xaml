@@ -10,15 +10,13 @@
     Title="{Binding Title}"
     prism:ViewModelLocator.AutowireViewModel="True"
     mc:Ignorable="d">
-    <StackLayout>
-        <Label>Olá</Label>
-    </StackLayout>
-    <!--<ListView
+
+    <ListView
         HasUnevenRows="true"
         HeightRequest="-1"
         IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy}"
-        ItemsSource="{Binding Movies}"
+        ItemsSource="{Binding Tanques}"
         RefreshCommand="{Binding PullToRefreshCommand}"
         SeparatorVisibility="None">
 
@@ -29,9 +27,47 @@
                         Margin="3"
                         Padding="0"
                         HasShadow="True">
-                        <Grid Margin="2">
+                        <Grid
+                            Margin="0"
+                            Padding="0"
+                            RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="100" />
+                            </Grid.RowDefinitions>
+                            <StackLayout Grid.Row="0" BackgroundColor="Fuchsia">
 
-                            <Image
+                                <Image
+                                    Aspect="AspectFill"
+                                    HeightRequest="80"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand">
+                                    <Image.Source>
+                                        <UriImageSource
+                                            CacheValidity="14"
+                                            CachingEnabled="true"
+                                            Uri="https://http2.mlstatic.com/tanque-circular-carcinicultura-geomembrana-5000-litros-D_NQ_NP_720334-MLB27521985469_062018-F.jpg" />
+                                    </Image.Source>
+                                </Image>
+                            </StackLayout>
+                            <Grid
+                                Grid.Row="1"
+                                Margin="3"
+                                BackgroundColor="Green">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="7*" />
+                                </Grid.ColumnDefinitions>
+                                <RelativeLayout
+                                    Grid.Column="0"
+                                    BackgroundColor="CadetBlue"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                    <Label Text="{Binding Descricao}" />
+                                </RelativeLayout>
+
+                            </Grid>
+                            <!--<Image
                                 Aspect="AspectFill"
                                 HorizontalOptions="Fill"
                                 IsOpaque="true"
@@ -41,18 +77,18 @@
                                     <UriImageSource
                                         CacheValidity="14"
                                         CachingEnabled="true"
-                                        Uri="{Binding BackdropPath, Converter={StaticResource MovieImageConverter}}" />
+                                        Uri="https://s2.glbimg.com/nzFGhkStocoZaZ6xWw-I7QLU7fI=/780x440/e.glbimg.com/og/ed/f/original/2018/12/05/c__tw76iDG.jpg" />
                                 </Image.Source>
-                            </Image>
+                            </Image>-->
 
-                            <Grid
+                            <!--<Grid
                                 Padding="10,0,10,0"
-                                ColumnSpacing="3"
+                                ColumnSpacing="0"
                                 RowSpacing="0"
                                 VerticalOptions="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="7*" />
                                 </Grid.ColumnDefinitions>
                                 <StackLayout Grid.Column="0">
                                     <Image
@@ -63,7 +99,7 @@
                                             <UriImageSource
                                                 CacheValidity="14"
                                                 CachingEnabled="true"
-                                                Uri="{Binding PosterPath, Converter={StaticResource MovieImageConverter}}" />
+                                                Uri="https://http2.mlstatic.com/tanque-circular-carcinicultura-geomembrana-5000-litros-D_NQ_NP_720334-MLB27521985469_062018-F.jpg" />
                                         </Image.Source>
                                     </Image>
                                 </StackLayout>
@@ -73,10 +109,11 @@
                                     JustifyContent="SpaceEvenly">
                                     <Label
                                         FontAttributes="Bold"
-                                        FontSize="18"
-                                        Text="{Binding Title}"
+                                        FontSize="14"
+                                        Text="{Binding Descricao}"
                                         TextColor="{StaticResource BlackColor}" />
-                                    <Label
+                            -->
+                            <!--<Label
                                         FontSize="12"
                                         Text="{Binding ReleaseDate, StringFormat='Release date: {0:MMMM d}'}"
                                         TextColor="{StaticResource BlackColor}"
@@ -85,15 +122,16 @@
                                         FontSize="12"
                                         Text="{Binding Popularity, StringFormat='Popularity: {0:F0}'}"
                                         TextColor="{StaticResource BlackColor}"
-                                        VerticalOptions="Center" />
+                                        VerticalOptions="Center" />-->
+                            <!--
                                 </FlexLayout>
-                            </Grid>
+                            </Grid>-->
                         </Grid>
                     </Frame>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
-        <ListView.Behaviors>
+        <!--<ListView.Behaviors>
             <behavior:EventToCommandBehavior
                 Command="{Binding ShowMovieCommand}"
                 EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}"
@@ -102,9 +140,9 @@
                 Command="{Binding LoadMoreCommand}"
                 EventArgsConverter="{StaticResource ItemVisibilityEventArgsConverter}"
                 EventName="ItemAppearing" />
-        </ListView.Behaviors>
+        </ListView.Behaviors>-->
 
-    </ListView>-->
+    </ListView>
 
 
 </ContentPage>
