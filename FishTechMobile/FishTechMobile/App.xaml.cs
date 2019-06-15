@@ -1,4 +1,6 @@
-﻿using FishTechMobile.Views;
+﻿using FishTechMobile.Services;
+using FishTechMobile.ViewModels;
+using FishTechMobile.Views;
 using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
@@ -44,7 +46,15 @@ namespace FishTechMobile
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            throw new NotImplementedException();
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MenuPage>();
+
+            containerRegistry.RegisterForNavigation<MainPage, MainViewModel>();
+            //containerRegistry.RegisterForNavigation<DetailsPage, DetailsViewModel>();
+            //containerRegistry.RegisterForNavigation<NoConnectionPage, NoConnectionViewModel>();
+            //containerRegistry.RegisterForNavigation<MenuPage, MenuViewModel>();
+            containerRegistry.RegisterSingleton<IHttpRequest, HttpRequest>();
+            containerRegistry.RegisterSingleton<IFishTechAPIService, FishTechApiService>();
         }
 
 
@@ -52,7 +62,10 @@ namespace FishTechMobile
         {
             InitializeComponent();
 #if DEBUG
-            HotReloader.Current.Run(this);
+            HotReloader.Current.Run(this, new HotReloader.Configuration
+            {
+                ExtensionAutoDiscoveryPort = 15000 // VALUE FROM EXTENSION's ALERT
+            });
 #endif
             await NavigationService.NavigateAsync($"xf:///{nameof(MenuPage)}/NavigationPage/{nameof(MainPage)}");
         }

@@ -3,21 +3,20 @@
     x:Class="FishTechMobile.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="{Binding Title}"
     prism:ViewModelLocator.AutowireViewModel="True"
     mc:Ignorable="d">
-    <StackLayout>
-        <Label>Olá</Label>
-    </StackLayout>
-    <!--<ListView
+
+    <ListView
         HasUnevenRows="true"
         HeightRequest="-1"
         IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy}"
-        ItemsSource="{Binding Movies}"
+        ItemsSource="{Binding Tanques}"
         RefreshCommand="{Binding PullToRefreshCommand}"
         SeparatorVisibility="None">
 
@@ -25,12 +24,118 @@
             <DataTemplate>
                 <ViewCell>
                     <Frame
-                        Margin="3"
+                        Margin="2"
                         Padding="0"
+                        CornerRadius="1"
                         HasShadow="True">
-                        <Grid Margin="2">
+                        <Grid
+                            Margin="0"
+                            Padding="0"
+                            RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="80" />
+                            </Grid.RowDefinitions>
+                            <StackLayout Grid.Row="0">
 
-                            <Image
+                                <Image
+                                    Aspect="AspectFill"
+                                    HeightRequest="50"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand">
+                                    <Image.Source>
+                                        <UriImageSource
+                                            CacheValidity="14"
+                                            CachingEnabled="true"
+                                            Uri="https://http2.mlstatic.com/tanque-circular-carcinicultura-geomembrana-5000-litros-D_NQ_NP_720334-MLB27521985469_062018-F.jpg" />
+                                    </Image.Source>
+                                </Image>
+                            </StackLayout>
+                            <Grid Grid.Row="1" Margin="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="6*" />
+                                </Grid.ColumnDefinitions>
+                                <RelativeLayout
+                                    Grid.Column="0"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                    <StackLayout
+                                        FlexLayout.Grow="0"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Spacing="0">
+                                        <Label Text="{Binding Descricao}" TextColor="Black" />
+                                        <Label FontSize="Micro" Text="{Binding DescricaoEspecie}" />
+                                    </StackLayout>
+                                </RelativeLayout>
+                                <FlexLayout
+                                    Grid.Column="1"
+                                    AlignItems="Center"
+                                    Direction="Row">
+                                    <StackLayout
+                                        FlexLayout.Grow="1"
+                                        HorizontalOptions="Center"
+                                        Spacing="0">
+                                        <Label
+                                            FontSize="7"
+                                            HorizontalOptions="Center"
+                                            Text="pH" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            HorizontalOptions="Center"
+                                            Text="7"
+                                            TextColor="CadetBlue" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        FlexLayout.Grow="1"
+                                        HorizontalOptions="Center"
+                                        Spacing="0">
+                                        <Label
+                                            FontSize="7"
+                                            HorizontalOptions="Center"
+                                            Text="OD" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="9"
+                                            HorizontalOptions="Center"
+                                            Text="7,4mg/l "
+                                            TextColor="CadetBlue" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        FlexLayout.Grow="1"
+                                        HorizontalOptions="Center"
+                                        Spacing="0">
+                                        <Label
+                                            FontSize="7"
+                                            HorizontalOptions="Center"
+                                            Text="°C" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            HorizontalOptions="Center"
+                                            Text="37,6"
+                                            TextColor="CadetBlue" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        FlexLayout.Grow="1"
+                                        HorizontalOptions="Center"
+                                        Spacing="0">
+                                        <Label
+                                            FontSize="7"
+                                            HorizontalOptions="Center"
+                                            Text="Turbidez" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Micro"
+                                            HorizontalOptions="Center"
+                                            Text="7"
+                                            TextColor="CadetBlue" />
+                                    </StackLayout>
+                                </FlexLayout>
+
+                            </Grid>
+                            <!--<Image
                                 Aspect="AspectFill"
                                 HorizontalOptions="Fill"
                                 IsOpaque="true"
@@ -40,18 +145,18 @@
                                     <UriImageSource
                                         CacheValidity="14"
                                         CachingEnabled="true"
-                                        Uri="{Binding BackdropPath, Converter={StaticResource MovieImageConverter}}" />
+                                        Uri="https://s2.glbimg.com/nzFGhkStocoZaZ6xWw-I7QLU7fI=/780x440/e.glbimg.com/og/ed/f/original/2018/12/05/c__tw76iDG.jpg" />
                                 </Image.Source>
-                            </Image>
+                            </Image>-->
 
-                            <Grid
+                            <!--<Grid
                                 Padding="10,0,10,0"
-                                ColumnSpacing="3"
+                                ColumnSpacing="0"
                                 RowSpacing="0"
                                 VerticalOptions="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="7*" />
                                 </Grid.ColumnDefinitions>
                                 <StackLayout Grid.Column="0">
                                     <Image
@@ -62,7 +167,7 @@
                                             <UriImageSource
                                                 CacheValidity="14"
                                                 CachingEnabled="true"
-                                                Uri="{Binding PosterPath, Converter={StaticResource MovieImageConverter}}" />
+                                                Uri="https://http2.mlstatic.com/tanque-circular-carcinicultura-geomembrana-5000-litros-D_NQ_NP_720334-MLB27521985469_062018-F.jpg" />
                                         </Image.Source>
                                     </Image>
                                 </StackLayout>
@@ -72,10 +177,11 @@
                                     JustifyContent="SpaceEvenly">
                                     <Label
                                         FontAttributes="Bold"
-                                        FontSize="18"
-                                        Text="{Binding Title}"
+                                        FontSize="14"
+                                        Text="{Binding Descricao}"
                                         TextColor="{StaticResource BlackColor}" />
-                                    <Label
+                            -->
+                            <!--<Label
                                         FontSize="12"
                                         Text="{Binding ReleaseDate, StringFormat='Release date: {0:MMMM d}'}"
                                         TextColor="{StaticResource BlackColor}"
@@ -84,15 +190,16 @@
                                         FontSize="12"
                                         Text="{Binding Popularity, StringFormat='Popularity: {0:F0}'}"
                                         TextColor="{StaticResource BlackColor}"
-                                        VerticalOptions="Center" />
+                                        VerticalOptions="Center" />-->
+                            <!--
                                 </FlexLayout>
-                            </Grid>
+                            </Grid>-->
                         </Grid>
                     </Frame>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
-        <ListView.Behaviors>
+        <!--<ListView.Behaviors>
             <behavior:EventToCommandBehavior
                 Command="{Binding ShowMovieCommand}"
                 EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}"
@@ -101,9 +208,9 @@
                 Command="{Binding LoadMoreCommand}"
                 EventArgsConverter="{StaticResource ItemVisibilityEventArgsConverter}"
                 EventName="ItemAppearing" />
-        </ListView.Behaviors>
+        </ListView.Behaviors>-->
 
-    </ListView>-->
+    </ListView>
 
 
 </ContentPage>
