@@ -1,0 +1,81 @@
+#include <Ethernet.h>
+#include <SPI.h>
+    int pH;
+    int temperatura;
+    int turbidez;
+    int oxigenio;   
+    byte mac[] = {  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+    IPAddress ip(192,168,1,240);
+    IPAddress gateway(192,168,1,1);
+    IPAddress mask(192,168,1,1);
+         
+    EthernetClient client;
+
+    void setup()
+    {
+    Ethernet.begin(mac, ip, gateway,mask);
+    Serial.begin(9600);
+     delay(1000);
+    Serial.println(Ethernet.localIP());
+   
+    delay(1000);
+   
+
+//    if (client.connect("192.168.0.55",80))
+//    {                                 
+//    Serial.println("Sending to Server: ");                   
+//    client.println("POST /test.php HTTP/1.1");           
+//    Serial.print("POST /test.php HTTP/1.1");           
+//    client.println("Host: 192.168.0.55");
+//    client.println("Content-Type: application/x-www-form-urlencoded");
+//    client.println("Connection: close");
+//    client.println("User-Agent: Arduino/1.0");
+//    client.print("Content-Length: ");
+//    client.println(temp.length());
+//    client.println();
+//    client.print(temp);
+//    client.println();                                           
+//    }
+//
+//    else
+//    {
+//    Serial.println("Cannot connect to Server");               
+//    }
+
+    }
+
+    void loop()                                           
+    {      
+       Serial.println(Ethernet.localIP());
+   
+    delay(1000);
+    
+//    if (client.available()) {
+//    char c = client.read();
+//    Serial.print(c);
+//    }
+//
+//    if (!client.connected())
+//    {
+//    Serial.println();
+//    Serial.println("disconnecting.");
+//    client.stop();
+//    for(;;)
+//      ;
+                               
+/*Serial.print("------------------------------ Gerar Aleatorio ------------------------\n");
+    pH = random(0,14);
+    temperatura = random(5,50);
+    turbidez = random(0,300);
+    oxigenio = random(0,20);
+    Serial.print("pH :");
+    Serial.println(pH);
+    Serial.print("Temperatura :");
+    Serial.println(temperatura); 
+    Serial.print("Turbidez: ");
+    Serial.println(turbidez); 
+    Serial.print("Oxigênio: ");
+    Serial.println(oxigenio);
+    Serial.print("");
+    delay(5000);*/
+    }

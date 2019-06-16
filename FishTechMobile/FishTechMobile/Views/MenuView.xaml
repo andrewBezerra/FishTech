@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FishTechMobile.Views.MenuView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{OnPlatform Android=130, iOS=200}" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+
+            <FlexLayout
+                Grid.Row="0"
+                Padding="{OnPlatform Android='20,0',
+                                     iOS='20,40,20,0'}"
+                AlignItems="Center"
+                Direction="Row">
+                <Frame
+                    Padding="0"
+                    CornerRadius="{OnPlatform Android=40,
+                                              iOS=50}"
+                    HeightRequest="{OnPlatform Android=80,
+                                               iOS=100}"
+                    IsClippedToBounds="true"
+                    WidthRequest="{OnPlatform Android=80,
+                                              iOS=100}">
+                    <Image Source="https://www.suasorquideas.com/wp-content/uploads/2019/01/IMG_8822-1024x1024.jpg" />
+                </Frame>
+
+                <StackLayout Padding="10,0,0,0" Spacing="0">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        Text="Prof. Carlos Cicinato" />
+
+                    <Label
+                        FontSize="Small"
+                        Text="Eng. Agronomo"
+                        TextColor="Gray" />
+                </StackLayout>
+            </FlexLayout>
+
+            <StackLayout Grid.Row="1" BindableLayout.ItemsSource="{Binding Menus}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <FlexLayout
+                            Padding="25,0"
+                            AlignItems="Center"
+                            HeightRequest="{OnPlatform Android=50,
+                                                       iOS=70}">
+                            <FlexLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference view}, Path=BindingContext.NavigateToCommand}" CommandParameter="{Binding Type}" />
+                            </FlexLayout.GestureRecognizers>
+
+                            <Image HeightRequest="{OnPlatform Android=30, iOS=40}" Source="{Binding Icon}" />
+
+                            <Label Margin="10,0,0,0" Text="{Binding Name}" />
+                        </FlexLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+
+
+
+            <Label
+                Grid.Row="2"
+                Margin="0,0,20,0"
+                HorizontalTextAlignment="End"
+                Text="1.11.0(1)" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

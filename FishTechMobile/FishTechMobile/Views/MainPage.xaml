@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FishTechMobile.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="{Binding Title}"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <ListView
+        HasUnevenRows="true"
+        HeightRequest="-1"
+        IsPullToRefreshEnabled="True"
+        IsRefreshing="{Binding IsBusy}"
+        ItemsSource="{Binding Tanques}"
+        RefreshCommand="{Binding PullToRefreshCommand}"
+        SeparatorVisibility="None">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame
+                        Margin="2"
+                        Padding="0"
+                        CornerRadius="1"
+                        HasShadow="True">
+                        <Grid
+                            Margin="0"
+                            Padding="0"
+                            RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="70" />
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Margin="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="7*" />
+                                </Grid.ColumnDefinitions>
+                                <RelativeLayout
+                                    Grid.Column="0"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                    <StackLayout
+                                        FlexLayout.Grow="0"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Spacing="0">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            Text="{Binding Descricao}"
+                                            TextColor="Black" />
+                                        <Label FontSize="Micro" Text="{Binding DescricaoEspecie}" />
+                                    </StackLayout>
+                                </RelativeLayout>
+
+                                <FlexLayout
+                                    Grid.Column="1"
+                                    AlignItems="Center"
+                                    Direction="Row">
+                                    <StackLayout
+                                        BackgroundColor="#DDD"
+                                        FlexLayout.Grow="1"
+                                        HeightRequest="40"
+                                        HorizontalOptions="Center"
+                                        Spacing="0">
+                                        <Label Style="{StaticResource IndicatorLabel}" Text="pH" />
+                                        <Label Style="{StaticResource IndicatorValue}" Text="{Binding Ph}" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        BackgroundColor="#DCEDC8"
+                                        FlexLayout.Grow="1"
+                                        HeightRequest="40"
+                                        HorizontalOptions="Center"
+                                        Spacing="0">
+                                        <Label Style="{StaticResource IndicatorLabel}" Text="OD" />
+                                        <Label Style="{StaticResource IndicatorValue}" Text="{Binding OD}" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        BackgroundColor="#DDD"
+                                        FlexLayout.Grow="1"
+                                        HeightRequest="40"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Spacing="0">
+                                        <Label Style="{StaticResource IndicatorLabel}" Text="°C" />
+                                        <Label Style="{StaticResource IndicatorValue}" Text="{Binding Temp}" />
+                                    </StackLayout>
+                                    <StackLayout
+                                        BackgroundColor="#DCEDC8"
+                                        FlexLayout.Grow="1"
+                                        HeightRequest="40"
+                                        HorizontalOptions="Center"
+                                        Spacing="0"
+                                        VerticalOptions="FillAndExpand">
+                                        <Label Style="{StaticResource IndicatorLabel}" Text="Turbidez" />
+                                        <Label Style="{StaticResource IndicatorValue}" Text="{Binding Turbidez}" />
+                                    </StackLayout>
+                                </FlexLayout>
+
+                            </Grid>
+
+                        </Grid>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        <ListView.Behaviors>
+
+            <behavior:EventToCommandBehavior
+                Command="{Binding ShowTanqueCommand}"
+                EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}"
+                EventName="ItemTapped" />
+
+
+            <!--<behavior:EventToCommandBehavior
+                Command="{Binding LoadMoreCommand}"
+                EventArgsConverter="{StaticResource ItemVisibilityEventArgsConverter}"
+                EventName="ItemAppearing" />-->
+
+
+
+        </ListView.Behaviors>
+
+    </ListView>
+
+
+</ContentPage>
