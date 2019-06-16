@@ -8,52 +8,53 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FishTechWebManager.Controllers
 {
-    public class TanqueController : Controller
+    public class IndicadorController : Controller
     {
-        private readonly ITanqueRepository _TANREP;
+        private readonly IIndicadorRepository _INDREP;
 
-        public TanqueController(ITanqueRepository TANREP)
+        public IndicadorController(IIndicadorRepository INDREP)
         {
-            _TANREP = TANREP;
+            _INDREP = INDREP;
         }
 
         public IActionResult Index()
         {
-            return View(_TANREP.List());
+            return View(_INDREP.List());
         }
         public IActionResult Criar()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Criar(Tanque tanque)
+        public IActionResult Criar(Indicador indicador)
         {
             if (ModelState.IsValid)
             {
-                _TANREP.Include(tanque);
-                return View("Index", _TANREP.List());
+                _INDREP.Include(indicador);
+                return View("Index", _INDREP.List());
             }
             else
             {
-                return View("Criar", tanque);
+                return View("Criar", indicador);
             }
         }
         public IActionResult Editar(int Id)
         {
-            return View(_TANREP.GetbyID(Id));
+            return View(_INDREP.GetbyID(Id));
         }
         [HttpPost]
-        public IActionResult Editar(Tanque tanque)
+        public IActionResult Editar(Indicador indicador)
         {
             if (ModelState.IsValid)
             {
-                _TANREP.Update(tanque);
-                return View("Index", _TANREP.List());
+                _INDREP.Update(indicador);
+                return View("Index", _INDREP.List());
             }
             else
             {
-                return View("Editar", tanque);
+                return View("Editar", indicador);
             }
+
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using FishTechWebManager._infra;
 using FishTechWebManager._Repository;
 using FishTechWebManager._Repository.Core;
 using Microsoft.AspNetCore.Builder;
@@ -45,15 +46,10 @@ namespace FishTechAPI
                         
                     });
 
-                string caminhoAplicacao =
-                    PlatformServices.Default.Application.ApplicationBasePath;
-                string nomeAplicacao =
-                    PlatformServices.Default.Application.ApplicationName;
-                string caminhoXmlDoc =
-                    Path.Combine(caminhoAplicacao, $"{nomeAplicacao}.xml");
-
-                c.IncludeXmlComments(caminhoXmlDoc);
+               
             });
+            services.AddSingleton<IDB, MSSQL>();
+
             services.AddTransient<IAtividadeRepository, AtividadeRepository>();
             services.AddTransient<IDispositivoRepository, DispositivoRepository>();
             services.AddTransient<IEspecieRepository, EspecieRepository>();
@@ -78,13 +74,14 @@ namespace FishTechAPI
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json",
-                    "Conversor de Temperaturas");
+                    "FishTech");
             });
+            app.UseMvc();
+            
         }
     }
 }

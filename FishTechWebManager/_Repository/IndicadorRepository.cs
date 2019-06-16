@@ -53,11 +53,6 @@ namespace FishTechWebManager._Repository
             }
         }
 
-        public void Notificacao()
-        {
-            //implantar método notificação para gerar mensagem para valores < ou valores > para determinado indicador
-        }
-
         public void Update(Indicador item)
         {
             using (var con = db.GetConnection())

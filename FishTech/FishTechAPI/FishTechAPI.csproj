@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
-    <DocumentationFile>FishTechAPI.xml</DocumentationFile>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <DocumentationFile>C:\DEV\HACKTHON\FishTech\FishTechAPI\FishTechAPI.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

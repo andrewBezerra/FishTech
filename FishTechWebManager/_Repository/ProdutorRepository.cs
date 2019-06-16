@@ -39,7 +39,7 @@ namespace FishTechWebManager._Repository
             using (var con = db.GetConnection())
             {
                 var query = "select * from Produtor where Id=@Id";
-                return con.QueryFirstOrDefault<Produtor>(query, new { IDProd });
+                return con.QueryFirstOrDefault<Produtor>(query, new { Id = IDProd });
             }
         }
 
@@ -58,6 +58,15 @@ namespace FishTechWebManager._Repository
             {
                 var query = "update Produtor set Nome=@Nome where Id=@Id";
                 con.Execute(query, new { item.Nome, item.Id });
+            }
+        }
+
+        public Produtor Get()
+        {
+            using (var con = db.GetConnection())
+            {
+                var query = "select * from Produtor ";
+                return con.QueryFirstOrDefault<Produtor>(query);
             }
         }
     }

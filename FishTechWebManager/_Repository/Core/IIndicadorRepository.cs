@@ -10,6 +10,5 @@ namespace FishTechWebManager._Repository.Core
         void Delete(int Id);
         IEnumerable<Indicador> List();
         Indicador GetbyID(int Id);
-        void Notificacao();
     }
 }

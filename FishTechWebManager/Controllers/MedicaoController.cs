@@ -8,51 +8,51 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FishTechWebManager.Controllers
 {
-    public class TanqueController : Controller
+    public class MedicaoController : Controller
     {
-        private readonly ITanqueRepository _TANREP;
+        private readonly IMedicaoRepository _MEDREP;
 
-        public TanqueController(ITanqueRepository TANREP)
+        public MedicaoController(IMedicaoRepository MEDREP)
         {
-            _TANREP = TANREP;
+            _MEDREP = MEDREP;
         }
 
         public IActionResult Index()
         {
-            return View(_TANREP.List());
+            return View(_MEDREP.List());
         }
         public IActionResult Criar()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Criar(Tanque tanque)
+        public IActionResult Criar(Medicao Medicao)
         {
             if (ModelState.IsValid)
             {
-                _TANREP.Include(tanque);
-                return View("Index", _TANREP.List());
+                _MEDREP.Include(Medicao);
+                return View("Index", _MEDREP.List());
             }
             else
             {
-                return View("Criar", tanque);
+                return View("Criar", Medicao);
             }
         }
         public IActionResult Editar(int Id)
         {
-            return View(_TANREP.GetbyID(Id));
+            return View(_MEDREP.GetbyID(Id));
         }
         [HttpPost]
-        public IActionResult Editar(Tanque tanque)
+        public IActionResult Editar(Medicao Medicao)
         {
             if (ModelState.IsValid)
             {
-                _TANREP.Update(tanque);
-                return View("Index", _TANREP.List());
+                _MEDREP.Update(Medicao);
+                return View("Index", _MEDREP.List());
             }
             else
             {
-                return View("Editar", tanque);
+                return View("Editar", Medicao);
             }
         }
     }

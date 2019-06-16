@@ -8,51 +8,51 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FishTechWebManager.Controllers
 {
-    public class TanqueController : Controller
+    public class ProdutorController : Controller
     {
-        private readonly ITanqueRepository _TANREP;
+        private readonly IProdutorRepository _PRODREP;
 
-        public TanqueController(ITanqueRepository TANREP)
+        public ProdutorController(IProdutorRepository PRODREP)
         {
-            _TANREP = TANREP;
+            _PRODREP = PRODREP;
         }
 
         public IActionResult Index()
         {
-            return View(_TANREP.List());
+            return View(_PRODREP.List());
         }
         public IActionResult Criar()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Criar(Tanque tanque)
+        public IActionResult Criar(Produtor Produtor)
         {
             if (ModelState.IsValid)
             {
-                _TANREP.Include(tanque);
-                return View("Index", _TANREP.List());
+                _PRODREP.Include(Produtor);
+                return View("Editar", _PRODREP.GetbyID(Produtor.Id));
             }
             else
             {
-                return View("Criar", tanque);
+                return View("Criar", Produtor);
             }
         }
         public IActionResult Editar(int Id)
         {
-            return View(_TANREP.GetbyID(Id));
+            return View(_PRODREP.GetbyID(Id));
         }
         [HttpPost]
-        public IActionResult Editar(Tanque tanque)
+        public IActionResult Editar(Produtor Produtor)
         {
             if (ModelState.IsValid)
             {
-                _TANREP.Update(tanque);
-                return View("Index", _TANREP.List());
+                _PRODREP.Update(Produtor);
+                return View("Index", _PRODREP.List());
             }
             else
             {
-                return View("Editar", tanque);
+                return View("Editar", Produtor);
             }
         }
     }

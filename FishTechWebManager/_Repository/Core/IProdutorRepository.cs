@@ -8,6 +8,7 @@ namespace FishTechWebManager._Repository.Core
         void Include(Produtor item);
         void Update(Produtor item);
         void Delete(int Id);
+        Produtor Get();
         Produtor GetbyID(int Id);
         IEnumerable<Produtor> List();
     }
