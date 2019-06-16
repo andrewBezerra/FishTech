@@ -58,7 +58,7 @@ namespace FishTechWebManager._Repository
             }
         }
 
-        IEnumerable<Atividade> IAtividadeRepository.Get()
+        public IEnumerable<Atividade> List()
         {
             using (var con = db.GetConnection())
             {
@@ -67,7 +67,7 @@ namespace FishTechWebManager._Repository
             }
         }
 
-        Atividade IAtividadeRepository.GetbyID(int IDAtividade)
+        public Atividade GetbyID(int IDAtividade)
         {
             using (var con = db.GetConnection())
             {

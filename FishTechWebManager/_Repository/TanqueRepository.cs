@@ -26,7 +26,7 @@ namespace FishTechWebManager._Repository
             }
         }
 
-        public IEnumerable<Tanque> Get()
+        public IEnumerable<Tanque> List()
         {
             using (var con = db.GetConnection())
             {

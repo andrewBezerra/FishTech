@@ -25,7 +25,7 @@ namespace FishTechWebManager._Repository
             }
         }
 
-        public IEnumerable<Produtor> Get()
+        public IEnumerable<Produtor> List()
         {
             using (var con = db.GetConnection())
             {

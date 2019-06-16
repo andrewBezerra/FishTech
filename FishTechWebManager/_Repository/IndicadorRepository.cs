@@ -44,6 +44,15 @@ namespace FishTechWebManager._Repository
             }
         }
 
+        public IEnumerable<Indicador> List()
+        {
+            using (var con = db.GetConnection())
+            {
+                var query = "select * from Indicador";
+                return con.Query<Indicador>(query);
+            }
+        }
+
         public void Notificacao()
         {
             //implantar método notificação para gerar mensagem para valores < ou valores > para determinado indicador

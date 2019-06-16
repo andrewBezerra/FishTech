@@ -11,39 +11,38 @@ namespace FishTechAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AtividadeController : ControllerBase
+    public class EspecieController : ControllerBase
     {
-        private readonly IAtividadeRepository _AREP;
+        private readonly IEspecieRepository _EREP;
 
-        public AtividadeController(IAtividadeRepository AREP)
+        public EspecieController(IEspecieRepository EREP)
         {
-            _AREP = AREP;
+            _EREP = EREP;
         }
         [HttpGet]
-        public IEnumerable<Atividade> Get()
+        public IEnumerable<Especie> Get()
         {
-            return _AREP.List();
+            return _EREP.List();
         }
         [HttpGet("{Id}")]
-        public Atividade Get(int Id)
+        public Especie Get(int Id)
         {
-            return _AREP.GetbyID(Id);
+            return _EREP.GetById(Id);
         }
         [HttpPost]
-        public void Post([FromBody]Atividade atividade)
+        public void Post([FromBody] Especie especie)
         {
-            _AREP.Include(atividade);
+            _EREP.Include(especie);
         }
         [HttpPut("{Id}")]
-        public void Put(int Id, [FromBody]Atividade atividade)
+        public void Put( int Id,[FromBody] Especie especie)
         {
-            _AREP.Update(atividade);
+            _EREP.Update(especie);
         }
         [HttpDelete("{Id}")]
         public void Delete(int Id)
         {
-            _AREP.Delete(Id);
+            _EREP.Delete(Id);
         }
-
     }
 }

@@ -1,8 +1,5 @@
 ﻿using FishTechWebManager.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FishTechWebManager._Repository.Core
 {
@@ -11,6 +8,7 @@ namespace FishTechWebManager._Repository.Core
         void Include(Indicador item);
         void Update(Indicador item);
         void Delete(int Id);
+        IEnumerable<Indicador> List();
         Indicador GetbyID(int Id);
         void Notificacao();
     }

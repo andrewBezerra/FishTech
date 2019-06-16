@@ -25,12 +25,30 @@ namespace FishTechWebManager._Repository
             }
         }
 
+        public Especie GetById(int Id)
+        {
+            using (var con = db.GetConnection())
+            {
+                var query = "select * from Especie where Id = @Id";
+                return con.Query<Especie>(query, new { Id }).FirstOrDefault();
+            }
+        }
+
         public void Include(Especie item)
         {
             using (var con = db.GetConnection())
             {
                 var query = "insert into Especie (Nome,Tanque) values (@Nome,@Tanque)";
                 con.Execute(query, new { item.Nome, item.Tanque });
+            }
+        }
+
+        public IEnumerable<Especie> List()
+        {
+            using (var con = db.GetConnection())
+            {
+                var query = "select * from Especie";
+                return con.Query<Especie>(query);
             }
         }
 

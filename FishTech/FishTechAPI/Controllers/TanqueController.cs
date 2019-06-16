@@ -11,38 +11,38 @@ namespace FishTechAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class IndicadorController : ControllerBase
+    public class TanqueController : ControllerBase
     {
-        private readonly IIndicadorRepository _IREP;
+        private readonly ITanqueRepository _TREP;
 
-        public IndicadorController(IIndicadorRepository IREP)
+        public TanqueController(ITanqueRepository TREP)
         {
-            _IREP = IREP;
+            _TREP = TREP;
         }
         [HttpGet]
-        public IEnumerable<Indicador> Get()
+        public IEnumerable<Tanque> Get()
         {
-            return _IREP.List();
+            return _TREP.List();
         }
         [HttpGet("Id")]
-        public Indicador Get(int Id)
+        public Tanque Get(int Id)
         {
-            return _IREP.GetbyID(Id);
+            return _TREP.GetbyID(Id);
         }
         [HttpPost]
-        public void Post([FromBody]Indicador indicador)
+        public void Post([FromBody]Tanque tanque)
         {
-            _IREP.Include(indicador);
+            _TREP.Include(tanque);
         }
         [HttpPut("{Id}")]
-        public void Put(int Id, [FromBody] Indicador indicador)
+        public void Put(int Id, [FromBody] Tanque tanque)
         {
-            _IREP.Update(indicador);
+            _TREP.Update(tanque);
         }
         [HttpDelete("{Id}")]
         public void Delete(int Id)
         {
-            _IREP.Delete(Id);
+            _TREP.Delete(Id);
         }
     }
 }

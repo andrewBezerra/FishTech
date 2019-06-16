@@ -11,39 +11,38 @@ namespace FishTechAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AtividadeController : ControllerBase
+    public class ProdutorController : ControllerBase
     {
-        private readonly IAtividadeRepository _AREP;
+        private readonly IProdutorRepository _PREP;
 
-        public AtividadeController(IAtividadeRepository AREP)
+        public ProdutorController(IProdutorRepository PREP)
         {
-            _AREP = AREP;
+            _PREP = PREP;
         }
         [HttpGet]
-        public IEnumerable<Atividade> Get()
+        public IEnumerable<Produtor> Get()
         {
-            return _AREP.List();
+            return _PREP.List();
         }
         [HttpGet("{Id}")]
-        public Atividade Get(int Id)
+        public Produtor Get(int Id)
         {
-            return _AREP.GetbyID(Id);
+            return _PREP.GetbyID(Id);
         }
         [HttpPost]
-        public void Post([FromBody]Atividade atividade)
+        public void Post([FromBody] Produtor produtor)
         {
-            _AREP.Include(atividade);
+            _PREP.Include(produtor);
         }
         [HttpPut("{Id}")]
-        public void Put(int Id, [FromBody]Atividade atividade)
+        public void Put(int Id, [FromBody] Produtor produtor)
         {
-            _AREP.Update(atividade);
+            _PREP.Update(produtor);
         }
         [HttpDelete("{Id}")]
         public void Delete(int Id)
         {
-            _AREP.Delete(Id);
+            _PREP.Delete(Id);
         }
-
     }
 }

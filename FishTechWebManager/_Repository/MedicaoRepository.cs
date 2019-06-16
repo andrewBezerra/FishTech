@@ -26,7 +26,7 @@ namespace FishTechWebManager._Repository
             }
         }
 
-        public IEnumerable<Medicao> Get()
+        public IEnumerable<Medicao> List()
         {
             using (var con = db.GetConnection())
             {

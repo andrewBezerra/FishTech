@@ -1,8 +1,5 @@
 ﻿using FishTechWebManager.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FishTechWebManager._Repository.Core
 {
@@ -12,6 +9,6 @@ namespace FishTechWebManager._Repository.Core
         void Update(Tanque item);
         void Delete(int Id);
         Tanque GetbyID(int Id);
-        IEnumerable<Tanque> Get();
+        IEnumerable<Tanque> List();
     }
 }
