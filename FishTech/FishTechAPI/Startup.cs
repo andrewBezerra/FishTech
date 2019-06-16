@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FishTechWebManager._Repository;
+using FishTechWebManager._Repository.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +27,14 @@ namespace FishTechAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IAtividadeRepository, AtividadeRepository>();
+            services.AddTransient<IDispositivoRepository, DispositivoRepository>();
+            services.AddTransient<IEspecieRepository, EspecieRepository>();
+            services.AddTransient<IIndicadorRepository, IndicadorRepository>();
+            services.AddTransient<IInformacoesRepository, InformacoesRepository>();
+            services.AddTransient<IMedicaoRepository, MedicaoRepository>();
+            services.AddTransient<IProdutorRepository, ProdutorRepository>();
+            services.AddTransient<ITanqueRepository, TanqueRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
