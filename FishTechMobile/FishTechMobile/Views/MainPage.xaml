@@ -65,7 +65,7 @@
                                         HorizontalOptions="Center"
                                         Spacing="0">
                                         <Label Style="{StaticResource IndicatorLabel}" Text="pH" />
-                                        <Label Style="{StaticResource IndicatorValue}" Text="7" />
+                                        <Label Style="{StaticResource IndicatorValue}" Text="{Binding Ph}" />
                                     </StackLayout>
                                     <StackLayout
                                         BackgroundColor="#DCEDC8"
@@ -74,7 +74,7 @@
                                         HorizontalOptions="Center"
                                         Spacing="0">
                                         <Label Style="{StaticResource IndicatorLabel}" Text="OD" />
-                                        <Label Style="{StaticResource IndicatorValue}" Text="7,4mg/l " />
+                                        <Label Style="{StaticResource IndicatorValue}" Text="{Binding OD}" />
                                     </StackLayout>
                                     <StackLayout
                                         BackgroundColor="#DDD"
@@ -83,7 +83,7 @@
                                         HorizontalOptions="CenterAndExpand"
                                         Spacing="0">
                                         <Label Style="{StaticResource IndicatorLabel}" Text="°C" />
-                                        <Label Style="{StaticResource IndicatorValue}" Text="37,6" />
+                                        <Label Style="{StaticResource IndicatorValue}" Text="{Binding Temp}" />
                                     </StackLayout>
                                     <StackLayout
                                         BackgroundColor="#DCEDC8"
@@ -93,7 +93,7 @@
                                         Spacing="0"
                                         VerticalOptions="FillAndExpand">
                                         <Label Style="{StaticResource IndicatorLabel}" Text="Turbidez" />
-                                        <Label Style="{StaticResource IndicatorValue}" Text="8" />
+                                        <Label Style="{StaticResource IndicatorValue}" Text="{Binding Turbidez}" />
                                     </StackLayout>
                                 </FlexLayout>
 

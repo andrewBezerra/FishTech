@@ -41,7 +41,7 @@
                                 HorizontalTextAlignment="Center"
                                 Text="pH"
                                 TextColor="Black" />
-                            <Label HorizontalTextAlignment="Center" Text="7" />
+                            <Label HorizontalTextAlignment="Center" Text="{Binding Tanque.Ph}" />
                         </StackLayout>
                     </Frame>
                     <Frame
@@ -57,7 +57,7 @@
                                 HorizontalTextAlignment="Center"
                                 Text="OD"
                                 TextColor="Black" />
-                            <Label HorizontalTextAlignment="Center" Text="7,4mg/l" />
+                            <Label HorizontalTextAlignment="Center" Text="{Binding Tanque.OD}" />
                         </StackLayout>
                     </Frame>
                     <Frame
@@ -73,7 +73,7 @@
                                 HorizontalTextAlignment="Center"
                                 Text="°C"
                                 TextColor="Black" />
-                            <Label HorizontalTextAlignment="Center" Text="37,6" />
+                            <Label HorizontalTextAlignment="Center" Text="{Binding Tanque.Temp}" />
                         </StackLayout>
 
                     </Frame>
@@ -90,7 +90,7 @@
                                 HorizontalTextAlignment="Center"
                                 Text="Turbidez"
                                 TextColor="Black" />
-                            <Label HorizontalTextAlignment="Center" Text="8" />
+                            <Label HorizontalTextAlignment="Center" Text="{Binding Tanque.Turbidez}" />
                         </StackLayout>
                     </Frame>
 
