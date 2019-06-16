@@ -3,6 +3,7 @@
     x:Class="FishTechMobile.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:FishTechMobile.Converters;assembly=FishTechMobile"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
@@ -20,9 +21,34 @@
             <Color x:Key="BackgroundColor">#FFFFFF</Color>
             <Color x:Key="DarkBackgroundColor">#512DA8</Color>
             <Color x:Key="MenuBackgroundColor">#44545C</Color>
-
             <!--  CONVERTERS  -->
 
+            <converters:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConverter" />
+
+
         </ResourceDictionary>
+        <Color x:Key="MainColor">#FFF</Color>
+        <Color x:Key="DarkColor">#FFF</Color>
+        <Color x:Key="DarkTextColor">#212121</Color>
+
+        <!--  Styles  -->
+        <Style x:Key="IndicatorLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="TextColor" Value="#212121" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+
+        <Style x:Key="IndicatorValue" TargetType="Label">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="TextColor" Value="#212121" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="FontAttributes" Value="Bold" />
+
+        </Style>
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="#212121" />
+            <Setter Property="BarTextColor" Value="#FFF" />
+
+        </Style>
     </Application.Resources>
 </prism:PrismApplication>

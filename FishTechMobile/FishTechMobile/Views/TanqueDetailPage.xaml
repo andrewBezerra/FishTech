@@ -3,15 +3,145 @@
     x:Class="FishTechMobile.Views.TanqueDetailPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="{Binding Tanque.Descricao}"
+    prism:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Frame
+            Margin="5"
+            Padding="5"
+            CornerRadius="1"
+            HasShadow="True">
+            <StackLayout>
+                <Label
+                    FontAttributes="Bold"
+                    Text="Espécie Predominante"
+                    TextColor="Black" />
+                <Label Text="{Binding Tanque.DescricaoEspecie}" />
+                <Label
+                    FontAttributes="Bold"
+                    Text="Última Leitura"
+                    TextColor="Black" />
+                <FlexLayout
+                    Grid.Column="1"
+                    AlignItems="Center"
+                    Direction="Row">
+                    <Frame
+                        Margin="5"
+                        Padding="5"
+                        BackgroundColor="#DCEDC8"
+                        CornerRadius="1"
+                        FlexLayout.Grow="1"
+                        HasShadow="True">
+                        <StackLayout>
+                            <Label
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"
+                                Text="pH"
+                                TextColor="Black" />
+                            <Label HorizontalTextAlignment="Center" Text="7" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+                        Margin="5"
+                        Padding="5"
+                        BackgroundColor="#DCEDC8"
+                        CornerRadius="1"
+                        FlexLayout.Grow="1"
+                        HasShadow="True">
+                        <StackLayout>
+                            <Label
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"
+                                Text="OD"
+                                TextColor="Black" />
+                            <Label HorizontalTextAlignment="Center" Text="7,4mg/l" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+                        Margin="5"
+                        Padding="5"
+                        BackgroundColor="#DCEDC8"
+                        CornerRadius="1"
+                        FlexLayout.Grow="1"
+                        HasShadow="True">
+                        <StackLayout>
+                            <Label
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"
+                                Text="°C"
+                                TextColor="Black" />
+                            <Label HorizontalTextAlignment="Center" Text="37,6" />
+                        </StackLayout>
+
+                    </Frame>
+                    <Frame
+                        Margin="5"
+                        Padding="5"
+                        BackgroundColor="#DCEDC8"
+                        CornerRadius="1"
+                        FlexLayout.Grow="1"
+                        HasShadow="True">
+                        <StackLayout>
+                            <Label
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center"
+                                Text="Turbidez"
+                                TextColor="Black" />
+                            <Label HorizontalTextAlignment="Center" Text="8" />
+                        </StackLayout>
+                    </Frame>
+
+                </FlexLayout>
+                <ScrollView>
+                    <StackLayout BackgroundColor="#EEEEEE" Spacing="10">
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="Histórico pH"
+                            TextColor="Black" />
+                        <microcharts:ChartView
+                            BackgroundColor="White"
+                            Chart="{Binding phchart}"
+                            HeightRequest="140" />
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="Histórico Oxigênio Dissolvido"
+                            TextColor="Black" />
+                        <microcharts:ChartView
+                            BackgroundColor="White"
+                            Chart="{Binding odchart}"
+                            HeightRequest="140" />
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="Histórico Temperatura"
+                            TextColor="Black" />
+                        <microcharts:ChartView
+                            BackgroundColor="White"
+                            Chart="{Binding tempchart}"
+                            HeightRequest="140" />
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center"
+                            Text="Histórico Turbidez da Água"
+                            TextColor="Black" />
+                        <microcharts:ChartView
+                            BackgroundColor="White"
+                            Chart="{Binding turbidezchart}"
+                            HeightRequest="140" />
+                        <!--<microcharts:ChartView x:Name="chart2" HeightRequest="140" BackgroundColor="White" />
+                            <microcharts:ChartView x:Name="chart3" HeightRequest="140" BackgroundColor="White" />
+                            <microcharts:ChartView x:Name="chart4" HeightRequest="140" BackgroundColor="White" />
+                            <microcharts:ChartView x:Name="chart5" HeightRequest="140" BackgroundColor="White" />
+                            <microcharts:ChartView x:Name="chart6" HeightRequest="140" BackgroundColor="White" />-->
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+        </Frame>
     </ContentPage.Content>
 </ContentPage>

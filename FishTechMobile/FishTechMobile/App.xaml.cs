@@ -5,6 +5,7 @@ using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,11 +14,11 @@ namespace FishTechMobile
     public partial class App : PrismApplication
     {
         public App()
+             : this(null)
         {
-            InitializeComponent();
 
-            MainPage = new MainPage();
         }
+
         public App(IPlatformInitializer initializer)
            : this(initializer, true)
         {
@@ -50,7 +51,7 @@ namespace FishTechMobile
             containerRegistry.RegisterForNavigation<MenuPage>();
 
             containerRegistry.RegisterForNavigation<MainPage, MainViewModel>();
-            //containerRegistry.RegisterForNavigation<DetailsPage, DetailsViewModel>();
+            containerRegistry.RegisterForNavigation<TanqueDetailPage, TanqueDetailViewModel>();
             //containerRegistry.RegisterForNavigation<NoConnectionPage, NoConnectionViewModel>();
             //containerRegistry.RegisterForNavigation<MenuPage, MenuViewModel>();
             containerRegistry.RegisterSingleton<IHttpRequest, HttpRequest>();
@@ -67,7 +68,14 @@ namespace FishTechMobile
                 ExtensionAutoDiscoveryPort = 15000 // VALUE FROM EXTENSION's ALERT
             });
 #endif
-            await NavigationService.NavigateAsync($"xf:///{nameof(MenuPage)}/NavigationPage/{nameof(MainPage)}");
+
+          
+            await InitializeNavigation();
+
+
         }
+
+        private Task InitializeNavigation()
+         => NavigationService.NavigateAsync($"xf:///{nameof(MenuPage)}/NavigationPage/{nameof(MainPage)}");
     }
 }

@@ -17,10 +17,10 @@ namespace FishTechMobile.ViewModels
     {
         public ObservableCollection<Tanque> Tanques { get; }
 
-        private DelegateCommand<Tanque> _ShowMovieCommand;
-        public DelegateCommand<Tanque> ShowMovieCommand =>
-            _ShowMovieCommand ?? (_ShowMovieCommand = new DelegateCommand<Tanque>(async (itemSelect) =>
-            await ExecuteShowMovieCommand(itemSelect), (itemSelect) => !IsBusy));
+        private DelegateCommand<Tanque> _ShowTanqueCommand;
+        public DelegateCommand<Tanque> ShowTanqueCommand =>
+            _ShowTanqueCommand ?? (_ShowTanqueCommand = new DelegateCommand<Tanque>(async (itemSelect) =>
+            await ExecuteShowTanqueCommand(itemSelect), (itemSelect) => !IsBusy));
 
         private DelegateCommand<Tanque> _loadMoreCommand;
         public DelegateCommand<Tanque> LoadMoreCommand =>
@@ -39,7 +39,7 @@ namespace FishTechMobile.ViewModels
         protected MainViewModel(INavigationService navigationService,
                 IPageDialogService pageDialogService, IFishTechAPIService FishTechService) : base(navigationService, pageDialogService)
         {
-            Title = "Meus Tanques";
+            Title = "Tanques";
 
             Tanques = new ObservableCollection<Tanque>();
             _FishTechService = FishTechService;
@@ -58,7 +58,7 @@ namespace FishTechMobile.ViewModels
 
         public override async void OnNavigatedTo(INavigationParameters parameters)
         {
-            var navigationMode = parameters.GetNavigationMode();
+            //var navigationMode = parameters.GetNavigationMode();
             //if (navigationMode == NavigationMode.Back)
             //{
             //    Console.Write("Voltei!");
@@ -71,7 +71,7 @@ namespace FishTechMobile.ViewModels
 
         }
 
-        private async Task ExecuteShowMovieCommand(Tanque tanque)
+        private async Task ExecuteShowTanqueCommand(Tanque tanque)
         {
 
             try
