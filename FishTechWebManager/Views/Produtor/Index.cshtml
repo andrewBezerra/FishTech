@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FishTechWebManager.Models.Atividade>
+﻿@model IEnumerable<FishTechWebManager.Models.Produtor>
 
 @{
     ViewData["Title"] = "Index";
@@ -8,11 +8,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Dispositivos
+            Produtores
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-home"></i> Dispositivos</a></li>
+            <li><a href="#"><i class="fa fa-home"></i> Produtores</a></li>
             @*
                 <li><a href="#">Examples</a></li>*@
         </ol>
@@ -30,6 +30,7 @@
                 </div>
             </div>
             <div class="box-body">
+
                 <p>
                     <a class="btn btn-success" asp-action="Create">Novo</a>
                 </p>
@@ -40,13 +41,7 @@
                                 @Html.DisplayNameFor(model => model.Id)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Titulo)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Agendamento)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Acao)
+                                @Html.DisplayNameFor(model => model.Nome)
                             </th>
                             <th></th>
                         </tr>
@@ -59,17 +54,10 @@
                                     @Html.DisplayFor(modelItem => item.Id)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Titulo)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Agendamento)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Acao)
+                                    @Html.DisplayFor(modelItem => item.Nome)
                                 </td>
                                 <td>
                                     <a class="btn btn-info" asp-action="Editar" asp-route-Id="@item.Id">Editar</a>
-
                                 </td>
                             </tr>
                         }
