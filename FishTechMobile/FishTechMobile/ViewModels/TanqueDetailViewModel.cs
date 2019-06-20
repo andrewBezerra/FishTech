@@ -43,7 +43,7 @@ namespace FishTechMobile.ViewModels
                 {
                     new Entry(6.5f)
                     {
-                        Label = "09/06/2019",
+                        Label = "08/06/2019",
                         ValueLabel = "6.5",
                         Color = SKColor.Parse("#FFA000")
                     },
@@ -97,7 +97,7 @@ namespace FishTechMobile.ViewModels
                 {
                     new Entry(36.1f)
                     {
-                        Label = "09/06/2019",
+                        Label = "08/06/2019",
                         ValueLabel = "36.1",
                         Color = SKColor.Parse("#FFA000")
                     },
@@ -262,7 +262,7 @@ namespace FishTechMobile.ViewModels
             IsBusy = true;
             var tanque = parameters.GetValue<Tanque>("tanque");
             Tanque = tanque;
-            Title = tanque.Descricao;
+            //Title = tanque.Descricao;
             IsBusy = false;
 
         }

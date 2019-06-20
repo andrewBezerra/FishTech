@@ -4,6 +4,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:behavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+        xmlns:customControls="clr-namespace:FishTechMobile.CustomControls;assembly=FishTechMobile"
+
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="{Binding Title}"
     prism:ViewModelLocator.AutowireViewModel="True">
@@ -19,9 +21,10 @@
 
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ViewCell>
-                    <Frame
-                        Margin="2"
+                <customControls:ExtendedViewCell SelectedBackgroundColor="Teal">
+                    <ViewCell.View>
+                        <Frame
+                        Margin="3"
                         Padding="0"
                         CornerRadius="1"
                         HasShadow="True">
@@ -101,7 +104,9 @@
 
                         </Grid>
                     </Frame>
-                </ViewCell>
+
+                    </ViewCell.View>
+                </customControls:ExtendedViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
         <ListView.Behaviors>

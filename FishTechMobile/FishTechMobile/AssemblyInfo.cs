@@ -1,3 +1,4 @@
 using Xamarin.Forms.Xaml;
-
-[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+#if !DEBUG
+        [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+#endif

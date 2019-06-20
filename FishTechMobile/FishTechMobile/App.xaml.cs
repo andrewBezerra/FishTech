@@ -66,7 +66,7 @@ namespace FishTechMobile
             HotReloader.Current.Run(this, new HotReloader.Configuration
             {
                 ExtensionAutoDiscoveryPort = 15000 // VALUE FROM EXTENSION's ALERT
-            });
+            }) ;
 #endif
 
           

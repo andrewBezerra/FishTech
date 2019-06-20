@@ -9,7 +9,6 @@ using Xamarin.Forms.Xaml;
 
 namespace FishTechMobile.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : MasterDetailPage
     {
         public MenuPage()
